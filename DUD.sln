@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DUD", "DUD\DUD.csproj", "{0EB43B80-B9B8-4AFE-A8DD-E0407352BD8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsbDriveDetector", "UsbDriveDetector\UsbDriveDetector.csproj", "{417E7734-5718-43AA-95E5-3D98F8F2BA5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{867399A6-AEDC-40E3-9CB8-1BFE5C30B318}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0EB43B80-B9B8-4AFE-A8DD-E0407352BD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EB43B80-B9B8-4AFE-A8DD-E0407352BD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EB43B80-B9B8-4AFE-A8DD-E0407352BD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{417E7734-5718-43AA-95E5-3D98F8F2BA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417E7734-5718-43AA-95E5-3D98F8F2BA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417E7734-5718-43AA-95E5-3D98F8F2BA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417E7734-5718-43AA-95E5-3D98F8F2BA5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867399A6-AEDC-40E3-9CB8-1BFE5C30B318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867399A6-AEDC-40E3-9CB8-1BFE5C30B318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867399A6-AEDC-40E3-9CB8-1BFE5C30B318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867399A6-AEDC-40E3-9CB8-1BFE5C30B318}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
