@@ -8,13 +8,15 @@ using System.Windows.Forms;
 using System.Threading;
 namespace UsbDriveDetector
 {
-   public  class DeviceChangeNotifier : Form
+    public class DeviceChangeNotifier : Form
     {
         private const int DBT_DEVICEARRIVAL = 0x8000;
         private const int DBT_DEVICEREMOVECOMPLETE = 0x8004;
         private const int DBT_DEVTYP_VOLUME = 0x00000002;
         public delegate void DeviceNotifyDelegate(Message msg);
+        public delegate void DeviceNotifyDelegateVolume(Message msg, DevBroadcastVolume vol);
         public static event DeviceNotifyDelegate DeviceNotify;
+        public static event DeviceNotifyDelegateVolume DeviceNotifyVolume;
         private static DeviceChangeNotifier mInstance;
 
         public static void Start()
@@ -55,8 +57,6 @@ namespace UsbDriveDetector
                 switch ((int)m.WParam)
                 {
                     case DBT_DEVICEARRIVAL:
-                        Console.WriteLine("New Device Arrived");
-
                         int devType = Marshal.ReadInt32(m.LParam, 4);
                         if (devType == DBT_DEVTYP_VOLUME)
                         {
@@ -65,18 +65,19 @@ namespace UsbDriveDetector
                                Marshal.PtrToStructure(m.LParam,
                                typeof(DevBroadcastVolume));
                             Console.WriteLine("Mask is " + vol.Mask);
+
+                            DeviceNotifyDelegateVolume handlerR = DeviceNotifyVolume;
+                            if (handlerR != null) handlerR(m, vol);
                         }
 
                         break;
 
                     case DBT_DEVICEREMOVECOMPLETE:
-                        Console.WriteLine("Device Removed");
+                        DeviceNotifyDelegate handler = DeviceNotify;
+                        if (handler != null) handler(m);
                         break;
 
                 }
-               
-                //DeviceNotifyDelegate handler = DeviceNotify;
-                //if (handler != null) handler(m);
             }
             base.WndProc(ref m);
         }
